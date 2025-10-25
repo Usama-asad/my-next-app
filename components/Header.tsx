@@ -5,10 +5,13 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import FloatingThemeToggle from '../components/FloatingThemeToggle';
+import { useTheme } from "next-themes";
 
 export default function Header() {
+  const { theme, setTheme } = useTheme();
+  const isDark = theme==="dark";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   // Define navigation links for easier mapping
   const navLinks = [
     { name: 'Bootcamps', href: '#' },
@@ -21,10 +24,10 @@ export default function Header() {
   return (
     <header className="relative z-50">
       {/* Top Banner */}
-      <div className="bg-primary-dark font-bold text-white text-sm py-2 flex items-center justify-center">
+      {/* <div className="bg-primary-dark font-bold text-white text-sm py-2 flex items-center justify-center">
         <span role="img" aria-label="trophy" className="mr-2 text-xl">🏆</span>
         Jetzt neu: Data Science & AI + AI Modeling mit IHK-Zertifikat
-      </div>
+      </div> */}
 
       {/* Main Navigation Bar */}
       <nav className="bg-primary-dark py-4 px-4 sm:px-6 flex items-center justify-between shadow-md">
@@ -172,6 +175,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <><FloatingThemeToggle toggleTheme={() => setTheme(isDark ? "light" : "dark")} isDark={isDark}/></>
     </header>
   );
 }
