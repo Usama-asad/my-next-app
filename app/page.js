@@ -13,6 +13,11 @@ import InvestmentGuarantee from '../components/InvestmentGuarantee';
 import OurTeachers from '../components/OurTeachers';
 import QualityCommitment from '../components/QualityCommitment';
 import AffordableFinancing from '../components/AffordableFinancing';
+import CourseParticipationSteps from '../components/CourseParticipationSteps';
+import WhatMakesUnique from '../components/WhatMakesUnique';
+import AlumniTestimonials from '../components/AlumniTestimonials';
+import FaqHeader from '../components/FaqHeader';
+import FaqGrid from '../components/FaqGrid';
 
 export default function Home() {
 
@@ -24,14 +29,19 @@ export default function Home() {
       <HeroSection2/>
       <AboutSection/>
       <AboutSection2/>
+      <PhasesSection/>
       <MLEngineeringDashboard/>
       <ScrollingLogos/>
-      <PhasesSection/>
       <BenefitsAndCareer/>
       <InvestmentGuarantee/>
       <OurTeachers/>
       <QualityCommitment/>
       <AffordableFinancing/>
+      <CourseParticipationSteps/>
+      <WhatMakesUnique/>
+      <AlumniTestimonials/>
+      <FaqHeader/>
+      <FaqGrid/>
     </>
   );
 }
