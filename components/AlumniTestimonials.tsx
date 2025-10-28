@@ -7,10 +7,10 @@ import AudioPlayer from './AudioPlayer';
 // Testimonial Card Component
 const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }) => {
   return (
-    <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full lg:h-[450px] shadow-primary-light dark:shadow-primary-light backdrop-blur-sm">
+    <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full shadow-primary-light dark:shadow-primary-light backdrop-blur-sm">
       <div className="mb-6">
         <span className="text-primary-light dark:text-dark-primary-light text-5xl font-serif leading-none block mb-4">”</span>
-        <p className="text-secondary-base dark:text-dark-secondary-base text-lg leading-relaxed">{quote}</p>
+        {/* <p className="text-secondary-base dark:text-dark-secondary-base text-lg leading-relaxed">{quote}</p> */}
 
         {audioSrc && ( // Only render if audioSrc is provided
           <div className="mt-4"> {/* Added margin-top for spacing below the quote */}
