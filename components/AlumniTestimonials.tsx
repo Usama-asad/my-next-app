@@ -7,7 +7,7 @@ import AudioPlayer from './AudioPlayer';
 // Testimonial Card Component
 const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }) => {
   return (
-    <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full lg:h-[400px] shadow-primary-light/20 dark:shadow-dark-primary-light/20 backdrop-blur-sm">
+    <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full lg:h-[450px] shadow-primary-light dark:shadow-primary-light backdrop-blur-sm">
       <div className="mb-6">
         <span className="text-primary-light dark:text-dark-primary-light text-5xl font-serif leading-none block mb-4">”</span>
         <p className="text-secondary-base dark:text-dark-secondary-base text-lg leading-relaxed">{quote}</p>
@@ -49,7 +49,7 @@ const AlumniTestimonials = () => {
       authorName: 'Capucine Dehaut',
       authorTitle: 'Data Analyst Sonder',
       avatarSrc: '/images/avatar-capucine.jpg',
-      audioSrc:'',
+      audioSrc:'/audio.mp3',
     },
     {
       quote:
@@ -57,7 +57,7 @@ const AlumniTestimonials = () => {
       authorName: 'Joseph Gulay',
       authorTitle: 'Data Analyst Ernst & Young',
       avatarSrc: '/images/avatar-joseph.jpg',
-      audioSrc:'',
+      audioSrc:'/audio.mp3',
     },
     {
       quote:
@@ -65,7 +65,7 @@ const AlumniTestimonials = () => {
       authorName: 'Carolina Cota',
       authorTitle: 'Backend Developer:in N26',
       avatarSrc: '/images/avatar-carolina.jpg',
-      audioSrc:'',
+      audioSrc:'/audio.mp3',
     },
     {
       quote:
@@ -73,7 +73,7 @@ const AlumniTestimonials = () => {
       authorName: 'Max Mustermann',
       authorTitle: 'Full-Stack Developer',
       avatarSrc: '/images/avatar-max.jpg',
-      audioSrc:'',
+      audioSrc:'/audio.mp3',
     },
     {
       quote:
@@ -81,7 +81,7 @@ const AlumniTestimonials = () => {
       authorName: 'Lena Schmidt',
       authorTitle: 'UX/UI Designer',
       avatarSrc: '/images/avatar-lena.jpg',
-      audioSrc:'',
+      audioSrc:'/audio.mp3',
     },
     {
       quote:
@@ -89,7 +89,7 @@ const AlumniTestimonials = () => {
       authorName: 'Felix Richter',
       authorTitle: 'DevOps Engineer',
       avatarSrc: '/images/avatar-felix.jpg',
-      audioSrc:'',
+      audioSrc:'/audio.mp3',
     },
   ];
 

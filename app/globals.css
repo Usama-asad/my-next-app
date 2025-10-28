@@ -1,7 +1,9 @@
 @import "tailwindcss";
+/* @plugin "tailwindcss/forms"; */
 @import 'swiper/css';
 @import 'swiper/css/pagination'; /* Only if you want pagination dots */
 @import 'swiper/css/navigation'; /* Only if you want navigation arrows */
+/* @import "tailwindcss/forms"; */
 
 @theme inline {
   --color-background: var(--background);

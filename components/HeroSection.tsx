@@ -2,9 +2,19 @@
 
 import Image from 'next/image';
 import { useRef, useEffect } from 'react';
+import Checkbox from './Checkbox';
+import React, { useState } from 'react';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const [isChecked, setIsChecked] = useState(false);
+
+  // 2. Handler function for when the checkbox changes
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+    console.log('Checkbox is now:', event.target.checked);
+  }
 
   useEffect(() => {
     if (videoRef.current) {
@@ -63,6 +73,25 @@ export default function HeroSection() {
             </p> */}
             <input type="text" placeholder='Email' className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80' />
             <input type="Password" placeholder='Password' className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80' />
+            <div className='flex items-center mb-3'>
+              <input
+                type="checkbox"
+                name='terms'
+                id='acceptTerms'
+                checked={true} // Controlled by React state
+                onChange={handleCheckboxChange} // Event handler 
+                className='appearance-none // --- IMPORTANT: Hides default browser checkbox
+            h-5 w-5 border border-2 rounded // Add border and rounded corners
+            checked:bg-trust-grey // Background when checked (use your trust-grey)
+            checked:border-transparent // Border when checked
+            focus:outline-none focus:ring-2 focus:ring-primary-light focus:ring-offset-2 // Focus ring
+            cursor-pointer transition-all duration-150 ease-in-out
+            // You can use your custom colors here
+            border-gray-400 // Default border color'
+              />
+              <label htmlFor="acceptTerms" className='ml-2 text-trust-grey cursor-pointer px-3'>Accept Terms and Conditions.</label>
+            </div>
+
             <button className="bg-primary-light dark:bg-primary-light text-primary-dark dark:text-primary-dark font-bold py-3 px-8 rounded-md transition-all duration-300 hover:bg-primary-accent dark:hover:bg-dark-primary-accent hover:shadow-[0_4px_20px_rgba(0,212,255,0.3)] focus:ring-2 focus:ring-primary-accent dark:focus:ring-dark-primary-accent focus:outline-none w-2/3 max-sm:bg-[#00C4EE] max-sm:dark:bg-[#00D4FF] mx-auto lg:mx-0">
               JETZT ERSTGESPRÄCH BUCHEN
               <br />
