@@ -58,9 +58,11 @@ export default function HeroSection() {
                 Sichere dir 40 %+ Profit mit 0-1 Teammitgliedern
               </li>
             </ul>
-            <p className="text-base sm:text-lg font-semibold text-trust-gray dark:text-dark-trust-gray mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 hover:underline hover:text-primary-accent dark:hover:text-dark-primary-accent">
+            {/* <p className="text-base sm:text-lg font-semibold text-trust-gray dark:text-dark-trust-gray mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 hover:underline hover:text-primary-accent dark:hover:text-dark-primary-accent">
               Too good to be true? Dann lies weiter.
-            </p>
+            </p> */}
+            <input type="text" placeholder='Email' className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80' />
+            <input type="Password" placeholder='Password' className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80' />
             <button className="bg-primary-light dark:bg-primary-light text-primary-dark dark:text-primary-dark font-bold py-3 px-8 rounded-md transition-all duration-300 hover:bg-primary-accent dark:hover:bg-dark-primary-accent hover:shadow-[0_4px_20px_rgba(0,212,255,0.3)] focus:ring-2 focus:ring-primary-accent dark:focus:ring-dark-primary-accent focus:outline-none w-2/3 max-sm:bg-[#00C4EE] max-sm:dark:bg-[#00D4FF] mx-auto lg:mx-0">
               JETZT ERSTGESPRÄCH BUCHEN
               <br />

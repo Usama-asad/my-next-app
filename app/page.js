@@ -18,13 +18,17 @@ import WhatMakesUnique from '../components/WhatMakesUnique';
 import AlumniTestimonials from '../components/AlumniTestimonials';
 import FaqHeader from '../components/FaqHeader';
 import FaqGrid from '../components/FaqGrid';
+import Header2 from '../components/Header2';
+import AudioPlayer from '../components/AudioPlayer';
 
 export default function Home() {
 
   return (
     <>
+      {/* <AudioPlayer/> */}
       <Header/>
       <HeroSection/>
+      <Header2/>
       <CourseOverview />
       <HeroSection2/>
       <AboutSection/>

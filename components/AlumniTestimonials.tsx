@@ -2,14 +2,22 @@ import React from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, A11y } from 'swiper/modules';
+import AudioPlayer from './AudioPlayer';
 
 // Testimonial Card Component
-const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc }) => {
+const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }) => {
   return (
     <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full lg:h-[400px] shadow-primary-light/20 dark:shadow-dark-primary-light/20 backdrop-blur-sm">
       <div className="mb-6">
         <span className="text-primary-light dark:text-dark-primary-light text-5xl font-serif leading-none block mb-4">”</span>
         <p className="text-secondary-base dark:text-dark-secondary-base text-lg leading-relaxed">{quote}</p>
+
+        {audioSrc && ( // Only render if audioSrc is provided
+          <div className="mt-4"> {/* Added margin-top for spacing below the quote */}
+            <AudioPlayer src={audioSrc} title={`Testimonial from ${authorName}`} />
+          </div>
+        )}
+
       </div>
       <div className="flex items-center mt-auto">
         {avatarSrc && (
@@ -41,6 +49,7 @@ const AlumniTestimonials = () => {
       authorName: 'Capucine Dehaut',
       authorTitle: 'Data Analyst Sonder',
       avatarSrc: '/images/avatar-capucine.jpg',
+      audioSrc:'',
     },
     {
       quote:
@@ -48,6 +57,7 @@ const AlumniTestimonials = () => {
       authorName: 'Joseph Gulay',
       authorTitle: 'Data Analyst Ernst & Young',
       avatarSrc: '/images/avatar-joseph.jpg',
+      audioSrc:'',
     },
     {
       quote:
@@ -55,6 +65,7 @@ const AlumniTestimonials = () => {
       authorName: 'Carolina Cota',
       authorTitle: 'Backend Developer:in N26',
       avatarSrc: '/images/avatar-carolina.jpg',
+      audioSrc:'',
     },
     {
       quote:
@@ -62,6 +73,7 @@ const AlumniTestimonials = () => {
       authorName: 'Max Mustermann',
       authorTitle: 'Full-Stack Developer',
       avatarSrc: '/images/avatar-max.jpg',
+      audioSrc:'',
     },
     {
       quote:
@@ -69,6 +81,7 @@ const AlumniTestimonials = () => {
       authorName: 'Lena Schmidt',
       authorTitle: 'UX/UI Designer',
       avatarSrc: '/images/avatar-lena.jpg',
+      audioSrc:'',
     },
     {
       quote:
@@ -76,6 +89,7 @@ const AlumniTestimonials = () => {
       authorName: 'Felix Richter',
       authorTitle: 'DevOps Engineer',
       avatarSrc: '/images/avatar-felix.jpg',
+      audioSrc:'',
     },
   ];
 
@@ -120,6 +134,7 @@ const AlumniTestimonials = () => {
                 authorName={testimonial.authorName}
                 authorTitle={testimonial.authorTitle}
                 avatarSrc={testimonial.avatarSrc}
+                audioSrc={testimonial.audioSrc}
               />
             </SwiperSlide>
           ))}

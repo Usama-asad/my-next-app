@@ -2,7 +2,7 @@ export default function CourseOverview() {
   return (
     <div className="min-h-screen bg-primary-dark p-4 sm:p-8">
       {/* Header/Navigation */}
-      <header className="mb-8 sm:mb-12">
+      {/* <header className="sticky top-0 z-50 mb-8 sm:mb-12">
         <nav className="flex flex-col sm:flex-row justify-between items-center bg-primary-dark/95 p-4 rounded-lg shadow-md backdrop-blur-sm">
           <div className="hidden sm:flex space-x-4">
             <a href="#" className="text-trust-grey hover:underline font-semibold hover:text-primary-accent transition-colors duration-200">Für Wen</a>
@@ -22,7 +22,7 @@ export default function CourseOverview() {
             </button>
           </div>
         </nav>
-      </header>
+      </header> */}
 
       {/* Main Content Section */}
       <main className="max-w-6xl mx-auto text-center">
