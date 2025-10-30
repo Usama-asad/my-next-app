@@ -1,0 +1,26 @@
+{
+  "heading": "Ist dieser Kurs das Richtige für dich?",
+  "description": "Der Data Science & AI Kurs von Le Wagon richtet sich an alle, die schon Programmier- und Mathematikkenntnisse haben und sich auf Data Science, Machine Learning und KI spezialisieren wollen. Für komplette Einsteiger:innen empfehlen wir stattdessen unser Data Analytics Bootcamp.",
+  "cards": [
+    {
+      "iconPath": "M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z",
+      "title": "Ich will ein konkretes datenbasiertes Projekt umsetzen",
+      "description": "Hast Du ein Machine Learning- oder Forschungsprojekt, das von tiefliegender Data Science Expertise profitieren würde? Der Data Science & AI Kurs von Le Wagon hilft dir, dein Projekt Realität werden zu lassen"
+    },
+    {
+      "iconPath": "M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z",
+      "title": "Ich bin KI-Enthusiast:in",
+      "description": "Wenn Dich die Welt der KI fasziniert und du deine Neugier vertiefen oder einfach im sich ständig wandelnden Tech-Bereich vorne bleiben willst – ist der Data Science Kurs von Le Wagon genau richtig für dich."
+    },
+    {
+      "iconPath": "M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z",
+      "title": "Ich will besser in meinem Job werden",
+      "description": "Der Kurs eignet sich ideal, wenn du schon mit Daten arbeitest und deine Skills verbessern, eine Beförderung anstreben oder besser mit Data Teams zusammenarbeiten möchtest."
+    },
+    {
+      "iconPath": "M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z",
+      "title": "Ich will meine Karriere wechseln",
+      "description": "Je nach Erfahrung kannst du Data Scientist, Data Analyst oder Machine Learning Expert:in werden. Unsere erstklassigen Career Services haben viele Absolvent:innen dabei unterstützt, ihren Traumjob zu finden."
+    }
+  ]
+}

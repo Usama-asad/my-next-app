@@ -1,15 +1,38 @@
+'use client'; // Required for client-side functionality (Swiper, useState)
+
 import React from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, A11y } from 'swiper/modules';
-import AudioPlayer from './AudioPlayer';
+import AudioPlayer from './AudioPlayer'; // Assuming AudioPlayer is a client component
 
-// Testimonial Card Component
-const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }) => {
+// Import Swiper styles
+// Make sure these are installed: npm install swiper
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// 1. Define the TypeScript Interface for a single testimonial item
+interface TestimonialItem {
+  quote: string;
+  authorName: string;
+  authorTitle: string;
+  avatarSrc: string; // Path to image
+  audioSrc?: string; // Optional path to audio
+}
+
+// 2. Import the JSON data directly
+// Adjust the path as needed based on where you saved testimonials.json
+// Ensure tsconfig.json has "resolveJsonModule": true
+import testimonialsData from '../data/testimonials.json';
+
+// Testimonial Card Component (unchanged, but types are now clearer from interface)
+const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }: TestimonialItem) => {
   return (
     <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full shadow-primary-light dark:shadow-primary-light backdrop-blur-sm">
       <div className="mb-6">
         <span className="text-primary-light dark:text-dark-primary-light text-5xl font-serif leading-none block mb-4">”</span>
+        {/* If you want to display the quote text, uncomment this: */}
         {/* <p className="text-secondary-base dark:text-dark-secondary-base text-lg leading-relaxed">{quote}</p> */}
 
         {audioSrc && ( // Only render if audioSrc is provided
@@ -17,7 +40,6 @@ const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }
             <AudioPlayer src={audioSrc} title={`Testimonial from ${authorName}`} />
           </div>
         )}
-
       </div>
       <div className="flex items-center mt-auto">
         {avatarSrc && (
@@ -25,7 +47,7 @@ const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }
             <Image
               src={avatarSrc}
               alt={authorName}
-              layout="fill"
+              layout="fill" // Note: layout="fill" requires the parent to be relative
               objectFit="cover"
               className="rounded-full"
             />
@@ -42,56 +64,8 @@ const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }
 
 // Main Testimonial Slider Component
 const AlumniTestimonials = () => {
-  const testimonials = [
-    {
-      quote:
-        'Ich konnte eine solide Grundlage in Data Science erwerben, an realen Problemen zu üben, einer lebendigen Community beitreten, und schnell meinen Traumjob als Datenanalyst finden. Ich empfehle Le Wagon zu 100%!',
-      authorName: 'Capucine Dehaut',
-      authorTitle: 'Data Analyst Sonder',
-      avatarSrc: '/images/avatar-capucine.jpg',
-      audioSrc:'/audio.mp3',
-    },
-    {
-      quote:
-        'Wenn du auf der Suche nach einem Bootcamp bist, das einen umfassenden Lehrplan, ein großartiges Lernumfeld und eine unglaubliche Karriereunterstützung bietet, dann ist Le Wagon genau das Richtige für dich!',
-      authorName: 'Joseph Gulay',
-      authorTitle: 'Data Analyst Ernst & Young',
-      avatarSrc: '/images/avatar-joseph.jpg',
-      audioSrc:'/audio.mp3',
-    },
-    {
-      quote:
-        'Es ist erstaunlich, wie viel man in nur 9 Wochen lernt, nicht nur in der Webentwicklung, sondern auch, wie man sich selbst herausfordert und als Person wächst!',
-      authorName: 'Carolina Cota',
-      authorTitle: 'Backend Developer:in N26',
-      avatarSrc: '/images/avatar-carolina.jpg',
-      audioSrc:'/audio.mp3',
-    },
-    {
-      quote:
-        'Le Wagon hat meine Karriere komplett verändert. Die Instruktoren waren unglaublich unterstützend und das Curriculum war topaktuell.',
-      authorName: 'Max Mustermann',
-      authorTitle: 'Full-Stack Developer',
-      avatarSrc: '/images/avatar-max.jpg',
-      audioSrc:'/audio.mp3',
-    },
-    {
-      quote:
-        'Die globale Community ist ein riesiger Vorteil. Ich konnte mit Alumni auf der ganzen Welt in Kontakt treten und wertvolle Einblicke gewinnen.',
-      authorName: 'Lena Schmidt',
-      authorTitle: 'UX/UI Designer',
-      avatarSrc: '/images/avatar-lena.jpg',
-      audioSrc:'/audio.mp3',
-    },
-    {
-      quote:
-        'Ich hätte nie gedacht, dass ich in so kurzer Zeit so viel lernen könnte. Die praktischen Projekte waren fantastisch und haben mir geholfen, schnell Vertrauen aufzubauen.',
-      authorName: 'Felix Richter',
-      authorTitle: 'DevOps Engineer',
-      avatarSrc: '/images/avatar-felix.jpg',
-      audioSrc:'/audio.mp3',
-    },
-  ];
+  // 3. Use the imported data (with a type assertion for safety)
+  const testimonials: TestimonialItem[] = testimonialsData;
 
   return (
     <div className="bg-gradient-hero dark:bg-dark-gradient-hero py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
@@ -109,12 +83,12 @@ const AlumniTestimonials = () => {
           modules={[Pagination, Navigation, A11y]}
           spaceBetween={30}
           slidesPerView={1}
-          pagination={false}
+          pagination={{ clickable: true }} // Made pagination clickable
           navigation={{
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           }}
-          loop={false}
+          loop={false} // Set to false, if you want infinite loop, change to true
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -125,10 +99,10 @@ const AlumniTestimonials = () => {
               spaceBetween: 30,
             },
           }}
-          className="mySwiper !pb-12"
+          className="mySwiper !pb-12" // Increased padding-bottom for pagination dots
         >
           {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index} className="flex h-auto">
+            <SwiperSlide key={index} className="flex h-auto"> {/* Added flex h-auto for card height */}
               <TestimonialCard
                 quote={testimonial.quote}
                 authorName={testimonial.authorName}
@@ -138,8 +112,19 @@ const AlumniTestimonials = () => {
               />
             </SwiperSlide>
           ))}
-          <div className="swiper-button-prev text-primary-light dark:text-dark-primary-light !left-0"></div>
-          <div className="swiper-button-next text-primary-light dark:text-dark-primary-light !right-0"></div>
+          {/* Custom Navigation Buttons (Tailwind styled) */}
+          {/* Ensure these elements are outside Swiper, but within its parent container
+              or appropriately positioned. Swiper will find them by class names. */}
+          <div className="swiper-button-prev absolute top-1/2 -translate-y-1/2 left-0 z-10 flex items-center justify-center p-2 rounded-full bg-trust-grey/50 dark:bg-primary-dark/50 text-primary-light dark:text-dark-primary-light cursor-pointer hover:bg-trust-grey dark:hover:bg-primary-dark transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </div>
+          <div className="swiper-button-next absolute top-1/2 -translate-y-1/2 right-0 z-10 flex items-center justify-center p-2 rounded-full bg-trust-grey/50 dark:bg-primary-dark/50 text-primary-light dark:text-dark-primary-light cursor-pointer hover:bg-trust-grey dark:hover:bg-primary-dark transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
         </Swiper>
       </div>
     </div>

@@ -1,0 +1,38 @@
+{
+  "benefits": [
+    {
+      "title": "Regular updates",
+      "description": "Live classes to keep you up to date with the latest developments in AI."
+    },
+    {
+      "title": "Query system",
+      "description": "Support to resolve your questions in less than 24 hours."
+    },
+    {
+      "title": "Lifetime access",
+      "description": "Access the course and all future updates at no additional cost."
+    }
+  ],
+  "careerOpportunities": [
+    {
+      "title": "Process Automation Specialist",
+      "description": "Optimize business tasks using generative tools and models."
+    },
+    {
+      "title": "Digital Transformation Consultant",
+      "description": "Implement innovative AI-based strategies in companies and organizations."
+    },
+    {
+      "title": "Product Manager in AI",
+      "description": "Leads product development projects that integrate generative artificial intelligence."
+    },
+    {
+      "title": "AI Instructor or Trainer",
+      "description": "Teach AI concepts and applications to teams or students, preparing them to harness its potential in projects."
+    },
+    {
+      "title": "Technology Entrepreneur",
+      "description": "Launch products or services that use generative AI as a competitive advantage, driving differentiation."
+    }
+  ]
+}

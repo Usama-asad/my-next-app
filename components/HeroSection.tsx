@@ -1,21 +1,19 @@
-'use client'; // Required for useRef and useEffect for video control
+'use client'; // Required for client-side interactivity, useRef, useEffect, useState
 
 import Image from 'next/image';
-import { useRef, useEffect } from 'react';
-import Checkbox from './Checkbox';
-import React, { useState } from 'react';
+import { useRef, useEffect, useState } from 'react'; // Ensure useState is imported
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const [isChecked, setIsChecked] = useState(false);
+  // Form State Management
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [isChecked, setIsChecked] = useState(false); // State for terms checkbox
+  const [message, setMessage] = useState(''); // Feedback message for the user
+  const [isLoading, setIsLoading] = useState(false); // Loading state for form submission
 
-  // 2. Handler function for when the checkbox changes
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-    console.log('Checkbox is now:', event.target.checked);
-  }
-
+  // Video Autoplay Effect
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
@@ -24,6 +22,64 @@ export default function HeroSection() {
     }
   }, []);
 
+  // Handler for terms checkbox
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+    // console.log('Checkbox is now:', event.target.checked); // Can remove this if no longer needed
+  };
+
+  // Handler for form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default browser form submission (page reload)
+    setMessage(''); // Clear previous messages
+    setIsLoading(true); // Set loading state
+
+    // Client-side Validation
+    if (!name.trim() || !email.trim()) { // .trim() to handle whitespace
+      setMessage('Name and Email are required.');
+      setIsLoading(false);
+      return;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      setMessage('Please enter a valid email address.');
+      setIsLoading(false);
+      return;
+    }
+    if (!isChecked) {
+      setMessage('You must accept the Terms and Conditions.');
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // Send data to your Next.js API route
+      const response = await fetch('/api/send-email', { // Adjust endpoint if different
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message || 'Thank you for your interest! We will be in touch.');
+        // Optionally clear form fields after successful submission
+        setName('');
+        setEmail('');
+        setIsChecked(false);
+      } else {
+        setMessage(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setMessage('An unexpected error occurred during submission.');
+    } finally {
+      setIsLoading(false); // Reset loading state
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-trust-grey dark:text-trust-grey overflow-hidden bg-gradient-hero dark:bg-dark-gradient-hero mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
       {/* Background Video */}
@@ -31,6 +87,7 @@ export default function HeroSection() {
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover z-0"
         muted
+        loop // Added loop for continuous playback
         playsInline
       >
         <source src="/background-video.mp4" type="video/mp4" />
@@ -49,7 +106,7 @@ export default function HeroSection() {
 
         {/* Content Grid for Desktop (2 columns) and Mobile (stacked) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
-          {/* Left Column: Sentence, List, Single Line, Button */}
+          {/* Left Column: Sentence, List, Form, Button */}
           <div className="flex flex-col text-center lg:text-left order-2 lg:order-1">
             <p className="text-base sm:text-lg text-trust-gray  dark:text-dark-secondary-base mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
               Finde als Coach, Berater & Creator endlich mal eine 1:1 Begleitung auf Augenhöhe und einen Prozess, den schon 2.000+ Coaches nutzen, um entspannt ohne Team auf 100k zu wachsen.
@@ -68,35 +125,61 @@ export default function HeroSection() {
                 Sichere dir 40 %+ Profit mit 0-1 Teammitgliedern
               </li>
             </ul>
-            {/* <p className="text-base sm:text-lg font-semibold text-trust-gray dark:text-dark-trust-gray mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 hover:underline hover:text-primary-accent dark:hover:text-dark-primary-accent">
-              Too good to be true? Dann lies weiter.
-            </p> */}
-            <input type="text" placeholder='Email' className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80' />
-            <input type="Password" placeholder='Password' className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80' />
-            <div className='flex items-center mb-3'>
-              <input
-                type="checkbox"
-                name='terms'
-                id='acceptTerms'
-                checked={true} // Controlled by React state
-                onChange={handleCheckboxChange} // Event handler 
-                className='appearance-none // --- IMPORTANT: Hides default browser checkbox
-            h-5 w-5 border border-2 rounded // Add border and rounded corners
-            checked:bg-trust-grey // Background when checked (use your trust-grey)
-            checked:border-transparent // Border when checked
-            focus:outline-none focus:ring-2 focus:ring-primary-light focus:ring-offset-2 // Focus ring
-            cursor-pointer transition-all duration-150 ease-in-out
-            // You can use your custom colors here
-            border-gray-400 // Default border color'
-              />
-              <label htmlFor="acceptTerms" className='ml-2 text-trust-grey cursor-pointer px-3'>Accept Terms and Conditions.</label>
-            </div>
 
-            <button className="bg-primary-light dark:bg-primary-light text-primary-dark dark:text-primary-dark font-bold py-3 px-8 rounded-md transition-all duration-300 hover:bg-primary-accent dark:hover:bg-dark-primary-accent hover:shadow-[0_4px_20px_rgba(0,212,255,0.3)] focus:ring-2 focus:ring-primary-accent dark:focus:ring-dark-primary-accent focus:outline-none w-2/3 max-sm:bg-[#00C4EE] max-sm:dark:bg-[#00D4FF] mx-auto lg:mx-0">
-              JETZT ERSTGESPRÄCH BUCHEN
-              <br />
-              <span className="text-sm font-normal">Such Dir einen freien Termin aus!</span>
-            </button>
+            {/* Form Section - Encapsulated */}
+            <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto lg:mx-0">
+              <input
+                type="text"
+                placeholder='Name'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80 w-full'
+                disabled={isLoading}
+              />
+              <input
+                type="email"
+                placeholder='Email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className='bg-secondary-base placeholder-trust-grey py-2 px-4 mb-4 rounded-md opacity-80 w-full'
+                disabled={isLoading}
+              />
+              <div className='flex items-center mb-6'> {/* Increased mb for message below */}
+                <input
+                  type="checkbox"
+                  name='terms'
+                  id='acceptTerms'
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                  className='appearance-none h-5 w-5 border border-2 rounded
+                             checked:bg-trust-grey checked:border-transparent
+                             focus:outline-none focus:ring-2 focus:ring-primary-light focus:ring-offset-2
+                             cursor-pointer transition-all duration-150 ease-in-out
+                             border-gray-400'
+                  disabled={isLoading}
+                />
+                <label htmlFor="acceptTerms" className='ml-2 text-trust-grey cursor-pointer px-3'>Accept Terms and Conditions.</label>
+              </div>
+
+              {/* Feedback Message */}
+              {message && (
+                <p className={`text-sm mb-4 text-center
+                  ${message.includes('successfully') || message.includes('Thank you') ? 'text-success-green' : 'text-alert-orange'}`}>
+                  {message}
+                </p>
+              )}
+
+              <button
+                type="submit" // Important: set type="submit" for the form to trigger handleSubmit
+                className={`bg-primary-light dark:bg-primary-light text-primary-dark dark:text-primary-dark font-bold py-3 px-8 rounded-md transition-all duration-300 hover:bg-primary-accent dark:hover:bg-dark-primary-accent hover:shadow-[0_4px_20px_rgba(0,212,255,0.3)] focus:ring-2 focus:ring-primary-accent dark:focus:ring-dark-primary-accent focus:outline-none w-2/3 max-sm:bg-[#00C4EE] max-sm:dark:bg-[#00D4FF] mx-auto lg:mx-0
+                           ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={isLoading} // Disable button when loading
+              >
+                {isLoading ? 'Sending...' : 'JETZT ERSTGESPRÄCH BUCHEN'}
+                <br />
+                <span className="text-sm font-normal">Such Dir einen freien Termin aus!</span>
+              </button>
+            </form>
           </div>
 
           {/* Right Column: Team Photo - Full width on mobile */}

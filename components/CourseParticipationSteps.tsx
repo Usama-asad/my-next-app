@@ -1,26 +1,19 @@
+// components/CourseParticipationSteps.tsx
 import React from 'react';
 
+// Import the JSON data directly
+import stepsDataJson from '../data/courseParticipationSteps.json';
+
+// Define the TypeScript Interface for a single step item directly in the component file
+interface Step {
+  number: string;
+  title: string;
+  description: string;
+}
+
 const CourseParticipationSteps = () => {
-  const steps = [
-    {
-      number: 'Schritt 1',
-      title: 'Melde dich frühzeitig arbeitssuchend',
-      description:
-        'Um deinen Bildungsgutschein für deine Umschulung von der Agentur für Arbeit, dem JobCenter oder dem Arbeitsamt zu bekommen, solltest du dich frühzeitig arbeitssuchend melden. Daher ist es sehr wichtig, dass du zuallererst einen Termin bei deinem zuständigen Amt vereinbarst. Mach es am besten direkt jetzt!',
-    },
-    {
-      number: 'Schritt 2',
-      title: 'Hol dir dein Bildungsangebot bei uns',
-      description:
-        'Der nächste Schritt auf dem Weg zu deinem IT-Bildungsgutschein geht easy und fix: Melde dich bei uns! Wir erstellen dir ein offizielles Bildungsangebot, dass du dann bei der Agentur für Arbeit, dem Jobcenter oder dem Arbeitsamt einreichen kannst.',
-    },
-    {
-      number: 'Schritt 3',
-      title: 'Beantrage den Bildungsgutschein',
-      description:
-        "Jetzt geht's ans Eingemachte: Mit dem von uns erstellten Bildungsangebot gehst du nun zurück zu deiner zuständigen Stelle und beantragst deinen Bildungsgutschein. Sobald dieser bewilligt ist, kannst du bei uns in deine neue Karriere durchstarten. Wir freuen uns auf dich!",
-    },
-  ];
+  // Use the imported data (with a type assertion for safety)
+  const steps: Step[] = stepsDataJson;
 
   return (
     <div className="bg-gradient-hero dark:bg-dark-gradient-hero text-primary-dark dark:text-dark-primary-dark py-12 sm:py-16 px-4 sm:px-6 lg:px-8">

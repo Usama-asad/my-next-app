@@ -1,0 +1,44 @@
+[
+  {
+    "quote": "Ich konnte eine solide Grundlage in Data Science erwerben, an realen Problemen zu üben, einer lebendigen Community beitreten, und schnell meinen Traumjob als Datenanalyst finden. Ich empfehle Le Wagon zu 100%!",
+    "authorName": "Capucine Dehaut",
+    "authorTitle": "Data Analyst Sonder",
+    "avatarSrc": "/images/avatar-capucine.jpg",
+    "audioSrc": "/audio.mp3"
+  },
+  {
+    "quote": "Wenn du auf der Suche nach einem Bootcamp bist, das einen umfassenden Lehrplan, ein großartiges Lernumfeld und eine unglaubliche Karriereunterstützung bietet, dann ist Le Wagon genau das Richtige für dich!",
+    "authorName": "Joseph Gulay",
+    "authorTitle": "Data Analyst Ernst & Young",
+    "avatarSrc": "/images/avatar-joseph.jpg",
+    "audioSrc": "/audio.mp3"
+  },
+  {
+    "quote": "Es ist erstaunlich, wie viel man in nur 9 Wochen lernt, nicht nur in der Webentwicklung, sondern auch, wie man sich selbst herausfordert und als Person wächst!",
+    "authorName": "Carolina Cota",
+    "authorTitle": "Backend Developer:in N26",
+    "avatarSrc": "/images/avatar-carolina.jpg",
+    "audioSrc": "/audio.mp3"
+  },
+  {
+    "quote": "Le Wagon hat meine Karriere komplett verändert. Die Instruktoren waren unglaublich unterstützend und das Curriculum war topaktuell.",
+    "authorName": "Max Mustermann",
+    "authorTitle": "Full-Stack Developer",
+    "avatarSrc": "/images/avatar-max.jpg",
+    "audioSrc": "/audio.mp3"
+  },
+  {
+    "quote": "Die globale Community ist ein riesiger Vorteil. Ich konnte mit Alumni auf der ganzen Welt in Kontakt treten und wertvolle Einblicke gewinnen.",
+    "authorName": "Lena Schmidt",
+    "authorTitle": "UX/UI Designer",
+    "avatarSrc": "/images/avatar-lena.jpg",
+    "audioSrc": "/audio.mp3"
+  },
+  {
+    "quote": "Ich hätte nie gedacht, dass ich in so kurzer Zeit so viel lernen könnte. Die praktischen Projekte waren fantastisch und haben mir geholfen, schnell Vertrauen aufzubauen.",
+    "authorName": "Felix Richter",
+    "authorTitle": "DevOps Engineer",
+    "avatarSrc": "/images/avatar-felix.jpg",
+    "audioSrc": "/audio.mp3"
+  }
+]

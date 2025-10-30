@@ -1,7 +1,15 @@
+import { useTheme } from "../contexts/ThemeContext";
+
 export default function Header2() {
+    const { theme } = useTheme();
+    const isDark = theme === "dark";
     return (
             <header className="sticky top-0 z-50">
-                <nav className="flex flex-col sm:flex-row justify-between items-center bg-primary-dark/95 p-4 rounded-lg shadow-md backdrop-blur-sm">
+                <nav className={`flex flex-col sm:flex-row justify-between items-center ${
+              isDark
+                ? "bg-primary-dark"
+                : "bg-primary-dark"
+            } p-4 rounded-lg shadow-md backdrop-blur-sm`}>
                     <div className="hidden sm:flex space-x-4">
                         <a href="#" className="text-trust-grey hover:underline font-semibold hover:text-primary-accent transition-colors duration-200">Für Wen</a>
                         <a href="#" className="text-trust-grey hover:underline hover:text-primary-accent transition-colors duration-200">Lehrplan</a>

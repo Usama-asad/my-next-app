@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Anas Andalussi",
+    "title": "Fundador de Escribelo & QuickTok",
+    "imageUrl": "/teacher1.png"
+  },
+  {
+    "name": "Fran Conejos",
+    "title": "Fundador de LandBot",
+    "imageUrl": "/teacher2.png"
+  },
+  {
+    "name": "Laura Migallón",
+    "title": "Divulgadora de IA",
+    "imageUrl": "/teacher3.png"
+  },
+  {
+    "name": "Damián Gil",
+    "title": "Experto en IA Aplicada a Empresas",
+    "imageUrl": "/teacher4.png"
+  },
+  {
+    "name": "Salvador Ramos",
+    "title": "Microsoft MVP y Experto en Power BI",
+    "imageUrl": "/teacher5.png"
+  },
+  {
+    "name": "Jon Hernández",
+    "title": "Experto en Fotografía con IA",
+    "imageUrl": "/teacher6.png"
+  },
+  {
+    "name": "Nicolás Cort",
+    "title": "Experto en IA aplicada a negocios",
+    "imageUrl": "/teacher7.png"
+  },
+  {
+    "name": "Jorge Branger",
+    "title": "Experto en LinkedIn",
+    "imageUrl": "/teacher8.png"
+  },
+  {
+    "name": "Damián Tuset",
+    "title": "Experto en Derecho de la IA",
+    "imageUrl": "/teacher9.png"
+  },
+  {
+    "name": "Andrés Sáenz Mag...",
+    "title": "Experto en Marketing Digital en el Sector TIC",
+    "imageUrl": "/teacher10.png"
+  },
+  {
+    "name": "Bosco López García",
+    "title": "Experto en Marketing Digital",
+    "imageUrl": "/teacher11.png"
+  },
+  {
+    "name": "Ivan Fresneda Carr...",
+    "title": "CEO de MyContent",
+    "imageUrl": "/teacher12.png"
+  }
+]

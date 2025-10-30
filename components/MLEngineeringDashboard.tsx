@@ -1,193 +1,45 @@
+// components/MLEngineeringDashboard.tsx
 "use client";
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
+// Import the JSON data directly
+import dashboardDataJson from '../data/mlEngineeringDashboard.json';
+
+// Define the TypeScript Interfaces directly in the component file
+interface SidebarItem {
+  id: string;
+  label: string;
+}
+
+interface Technology {
+  name: string;
+  logo: string;
+}
+
+interface ContentSection {
+  title: string;
+  duration: string;
+  description: string;
+  practices: string[];
+  technologies: Technology[];
+}
+
+interface DashboardData {
+  sidebarItems: SidebarItem[];
+  contentData: {
+    [key: string]: ContentSection;
+  };
+}
+
 const MLEngineeringDashboard = () => {
+  // Use the imported data (with a type assertion for safety)
+  const data: DashboardData = dashboardDataJson;
+  const { sidebarItems, contentData } = data;
+
   const [activeSection, setActiveSection] = useState("machine-learning");
 
-  const sidebarItems = [
-    { id: "prepwork", label: "Prepwork", type: "item" },
-    { id: "intro-week", label: "Data Science Introduction Week", type: "item" },
-    { id: "data-analysis", label: "1. Data Analysis", type: "item" },
-    { id: "decision-science", label: "2. Decision Science", type: "item" },
-    {
-      id: "machine-learning",
-      label: "3. Machine Learning",
-      type: "item",
-      active: true,
-    },
-    { id: "deep-learning", label: "4. Deep Learning", type: "item" },
-    { id: "ml-engineering", label: "5. ML Engineering", type: "item" },
-    { id: "extended-learning", label: "Extended Learning", type: "item" },
-    { id: "project-weeks", label: "Project weeks", type: "item" },
-    { id: "career-services", label: "Career services", type: "item" },
-  ];
-
-  const contentData = {
-    "machine-learning": {
-      title: "Learn Python for data science",
-      duration: "56H",
-      description:
-        "Extract data from relational databases, manipulate big data matrix and build visualizations. Understand key maths concepts for data analysis like statistics & linear algebra.",
-      practices: [
-        "A database built by scraping data from online bookstores",
-        "Advanced analysis of ecommerce data in SQL",
-        "Visual dashboard connected to stock-market APIs",
-      ],
-      technologies: [
-        { name: "Python", logo: "🐍" },
-        { name: "SQL", logo: "🗄️" },
-        { name: "Jupyter", logo: "📓" },
-        { name: "Pandas", logo: "🐼" },
-        { name: "Numpy", logo: "🔢" },
-        { name: "Matplotlib", logo: "📊" },
-        { name: "Seaborn", logo: "🌊" },
-        { name: "BigQuery", logo: "🔍" },
-      ],
-    },
-    "ml-engineering": {
-      title: "Train your model",
-      duration: "40H",
-      description:
-        "Turn your best handcrafted models into a replicable Python package that can be trained on big data in the cloud, using virtual machines and online databases. Monitor your model performance as new data comes in, retrain it when needed, and expose its predictions to the world via APIs or websites.",
-      practices: [
-        "ML model for predicting taxi fares, trained on big data on the cloud",
-        "Visual web dashboard showing live predictions (on charts, maps, etc.)",
-        "Trained models in production capable of self-healing",
-      ],
-      technologies: [
-        { name: "Google Compute", logo: "☁️" },
-        { name: "Cloud storage", logo: "💾" },
-        { name: "BigQuery", logo: "🔍" },
-        { name: "ML flow", logo: "🔄" },
-        { name: "Docker", logo: "🐳" },
-        { name: "FastAPI", logo: "⚡" },
-        { name: "Prefect", logo: "🔷" },
-        { name: "Streamlit", logo: "🎯" },
-      ],
-    },
-    "intro-week": {
-      title: "Understand the fundamentals of Data Science",
-      duration: "40H",
-      description:
-        "It's highly recommended that you join our online pre-bootcamp Python & SQL introduction. During this time, collaboratively engage with your instructors in a live online setting to understand the fundamentals.",
-      practices: [
-        "Introduction to Python programming fundamentals",
-        "SQL basics and database queries",
-        "Data manipulation and analysis concepts",
-      ],
-      technologies: [
-        { name: "Python", logo: "🐍" },
-        { name: "SQL", logo: "🗄️" },
-        { name: "Jupyter", logo: "📓" },
-        { name: "Git", logo: "🔀" },
-      ],
-    },
-    "data-analysis": {
-      title: "Master Data Analysis",
-      duration: "45H",
-      description:
-        "Learn to extract insights from data using statistical methods and visualization techniques. Build interactive dashboards and reports.",
-      practices: [
-        "Statistical analysis of real-world datasets",
-        "Interactive data visualizations",
-        "Automated reporting systems",
-      ],
-      technologies: [
-        { name: "Python", logo: "🐍" },
-        { name: "Pandas", logo: "🐼" },
-        { name: "Matplotlib", logo: "📊" },
-        { name: "Tableau", logo: "📈" },
-      ],
-    },
-    "decision-science": {
-      title: "Decision Science & Business Intelligence",
-      duration: "50H",
-      description:
-        "Apply data-driven decision making to solve complex business problems. Learn A/B testing, experimentation, and causal inference.",
-      practices: [
-        "A/B testing frameworks for product optimization",
-        "Causal inference models for business decisions",
-        "Recommendation systems for e-commerce",
-      ],
-      technologies: [
-        { name: "Python", logo: "🐍" },
-        { name: "SQL", logo: "🗄️" },
-        { name: "R", logo: "📊" },
-        { name: "Excel", logo: "📗" },
-      ],
-    },
-    "deep-learning": {
-      title: "Deep Learning & Neural Networks",
-      duration: "60H",
-      description:
-        "Build and train neural networks for computer vision, natural language processing, and time series forecasting.",
-      practices: [
-        "Image classification with CNNs",
-        "Text generation with RNNs and Transformers",
-        "Time series forecasting with LSTMs",
-      ],
-      technologies: [
-        { name: "TensorFlow", logo: "🧠" },
-        { name: "PyTorch", logo: "🔥" },
-        { name: "Keras", logo: "⚙️" },
-        { name: "OpenCV", logo: "👁️" },
-      ],
-    },
-    "extended-learning": {
-      title: "Extended Learning & Specialization",
-      duration: "30H",
-      description:
-        "Dive deeper into advanced topics and specialize in areas like reinforcement learning, generative AI, or big data analytics. Customize your learning path with elective modules.",
-      practices: [
-        "Reinforcement learning for game AI",
-        "Generative AI for content creation",
-        "Big data analytics with distributed computing",
-      ],
-      technologies: [
-        { name: "TensorFlow", logo: "🧠" },
-        { name: "PyTorch", logo: "🔥" },
-        { name: "Spark", logo: "⚡" },
-        { name: "Hadoop", logo: "🐘" },
-      ],
-    },
-    "project-weeks": {
-      title: "Capstone Project Weeks",
-      duration: "80H",
-      description:
-        "Apply your skills to real-world projects, working in teams to solve industry-relevant problems. Build a portfolio-worthy project with mentorship from experts.",
-      practices: [
-        "End-to-end ML pipeline for a retail recommendation system",
-        "Predictive maintenance model for industrial equipment",
-        "Sentiment analysis dashboard for social media data",
-      ],
-      technologies: [
-        { name: "Python", logo: "🐍" },
-        { name: "Docker", logo: "🐳" },
-        { name: "FastAPI", logo: "⚡" },
-        { name: "Streamlit", logo: "🎯" },
-        { name: "BigQuery", logo: "🔍" },
-      ],
-    },
-    "career-services": {
-      title: "Career Services & Job Placement",
-      duration: "20H",
-      description:
-        "Prepare for your data science career with resume building, interview coaching, and job placement support. Connect with industry partners and build your professional network.",
-      practices: [
-        "Craft a data science portfolio",
-        "Mock interviews with technical and behavioral questions",
-        "Networking events with industry professionals",
-      ],
-      technologies: [
-        { name: "LinkedIn", logo: "🔗" },
-        { name: "GitHub", logo: "🐙" },
-        { name: "Jupyter", logo: "📓" },
-        { name: "Tableau", logo: "📈" },
-      ],
-    },
-  };
-
+  // Fallback if activeSection is not found in contentData (e.g., initial state)
   const currentContent =
     contentData[activeSection] || contentData["machine-learning"];
 

@@ -1,8 +1,20 @@
+// components/OurTeachers.tsx
 import React from 'react';
 import Image from 'next/image';
 
+// Import the JSON data directly
+import teachersDataJson from '../data/ourTeachers.json';
+
+// Define the TypeScript Interface for a single teacher item directly in the component file
+interface Teacher {
+  name: string;
+  title: string;
+  imageUrl: string;
+}
+
 // Individual Teacher Card Component
-const TeacherCard = ({ name, title, imageUrl }) => {
+// Now explicitly typed with the Teacher interface
+const TeacherCard = ({ name, title, imageUrl }: Teacher) => {
   return (
     <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-4 flex items-center space-x-4 transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:shadow-primary-light/20 dark:hover:shadow-dark-primary-light/20 backdrop-blur-sm">
       <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden relative">
@@ -24,68 +36,8 @@ const TeacherCard = ({ name, title, imageUrl }) => {
 
 // Main component for the Professors section
 const OurTeachers = () => {
-  const teachers = [
-    {
-      name: 'Anas Andalussi',
-      title: 'Fundador de Escribelo & QuickTok',
-      imageUrl: '/teacher1.png',
-    },
-    {
-      name: 'Fran Conejos',
-      title: 'Fundador de LandBot',
-      imageUrl: '/teacher2.png',
-    },
-    {
-      name: 'Laura Migallón',
-      title: 'Divulgadora de IA',
-      imageUrl: '/teacher3.png',
-    },
-    {
-      name: 'Damián Gil',
-      title: 'Experto en IA Aplicada a Empresas',
-      imageUrl: '/teacher4.png',
-    },
-    {
-      name: 'Salvador Ramos',
-      title: 'Microsoft MVP y Experto en Power BI',
-      imageUrl: '/teacher5.png',
-    },
-    {
-      name: 'Jon Hernández',
-      title: 'Experto en Fotografía con IA',
-      imageUrl: '/teacher6.png',
-    },
-    {
-      name: 'Nicolás Cort',
-      title: 'Experto en IA aplicada a negocios',
-      imageUrl: '/teacher7.png',
-    },
-    {
-      name: 'Jorge Branger',
-      title: 'Experto en LinkedIn',
-      imageUrl: '/teacher8.png',
-    },
-    {
-      name: 'Damián Tuset',
-      title: 'Experto en Derecho de la IA',
-      imageUrl: '/teacher9.png',
-    },
-    {
-      name: 'Andrés Sáenz Mag...',
-      title: 'Experto en Marketing Digital en el Sector TIC',
-      imageUrl: '/teacher10.png',
-    },
-    {
-      name: 'Bosco López García',
-      title: 'Experto en Marketing Digital',
-      imageUrl: '/teacher11.png',
-    },
-    {
-      name: 'Ivan Fresneda Carr...',
-      title: 'CEO de MyContent',
-      imageUrl: '/teacher12.png',
-    },
-  ];
+  // Use the imported data (with a type assertion for safety)
+  const teachers: Teacher[] = teachersDataJson;
 
   return (
     <div className="min-h-screen bg-gradient-hero dark:bg-dark-gradient-hero text-primary-dark dark:text-dark-primary-dark p-6 md:p-8 lg:p-12">

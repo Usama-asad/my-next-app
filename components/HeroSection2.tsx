@@ -5,7 +5,7 @@ const HeroSection2 = () => {
     <section className="bg-gradient-hero dark:bg-dark-gradient-hero text-trust-grey dark:text-dark-trust-grey py-12 sm:py-16 px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
       <div className="max-w-6xl mx-auto text-center">
         {/* Headings and Sentences */}
-        <h1 className="dark:text-trust-grey text-primary-dark text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+        <h1 className="dark:text-trust-grey light:text-primary-dark text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
           Ergebnisse wie diese klingen komplett <br />
           <span className="text-primary-light dark:text-dark-primary-light max-sm:text-[#00C4EE] max-sm:dark:text-[#00D4FF]">unglaubwürdig</span>, richtig?
         </h1>

@@ -6,11 +6,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import FloatingThemeToggle from '../components/FloatingThemeToggle';
-import { useTheme } from "next-themes";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function Header() {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const isDark = theme==="dark";
+  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // Define navigation links for easier mapping
   const navLinks = [
@@ -30,7 +31,11 @@ export default function Header() {
       </div> */}
 
       {/* Main Navigation Bar */}
-      <nav className="bg-primary-dark py-4 px-4 sm:px-6 flex items-center justify-between shadow-md">
+      <nav className={`${
+              isDark
+                ? "bg-primary-dark"
+                : "bg-primary-dark"
+            } py-4 px-4 sm:px-6 flex items-center justify-between shadow-md`}>
         {/* Logo */}
         <div className="relative h-6 w-32">
           <Image
@@ -175,7 +180,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <><FloatingThemeToggle toggleTheme={() => setTheme(isDark ? "light" : "dark")} isDark={isDark}/></>
+      <><FloatingThemeToggle toggleTheme={toggleTheme} isDark={isDark}/></>
     </header>
   );
 }

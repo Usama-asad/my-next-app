@@ -1,9 +1,30 @@
+// components/BenefitsAndCareer.tsx
 import React from 'react';
 
-const Card = ({ title, description, isCareer }) => {
+// Import the JSON data directly
+import benefitsAndCareerDataJson from '../data/benefitsAndCareer.json';
+
+// Define the TypeScript Interfaces directly in the component file
+interface Item {
+  title: string;
+  description: string;
+}
+
+interface BenefitsAndCareerData {
+  benefits: Item[];
+  careerOpportunities: Item[];
+}
+
+// Individual Card Component
+// Now explicitly typed with the Item interface and its own props
+interface CardProps extends Item {
+  isCareer: boolean;
+}
+
+const Card = ({ title, description, isCareer }: CardProps) => {
   const hoverClasses = isCareer ? 'hover:scale-105 hover:shadow-primary-light/20 dark:hover:shadow-dark-primary-light/20' : 'hover:scale-105 hover:shadow-primary-light/20 dark:hover:shadow-dark-primary-light/20';
-  const titleColorClass = isCareer 
-    ? 'text-primary-dark dark:text-dark-primary-dark' 
+  const titleColorClass = isCareer
+    ? 'text-primary-dark dark:text-dark-primary-dark'
     : 'text-primary-light dark:text-dark-primary-light max-sm:text-[#00C4EE] max-sm:dark:text-[#00D4FF]';
 
   return (
@@ -17,43 +38,8 @@ const Card = ({ title, description, isCareer }) => {
 };
 
 const BenefitsAndCareer = () => {
-  const benefits = [
-    {
-      title: 'Regular updates',
-      description: 'Live classes to keep you up to date with the latest developments in AI.',
-    },
-    {
-      title: 'Query system',
-      description: 'Support to resolve your questions in less than 24 hours.',
-    },
-    {
-      title: 'Lifetime access',
-      description: 'Access the course and all future updates at no additional cost.',
-    },
-  ];
-
-  const careerOpportunities = [
-    {
-      title: 'Process Automation Specialist',
-      description: 'Optimize business tasks using generative tools and models.',
-    },
-    {
-      title: 'Digital Transformation Consultant',
-      description: 'Implement innovative AI-based strategies in companies and organizations.',
-    },
-    {
-      title: 'Product Manager in AI',
-      description: 'Leads product development projects that integrate generative artificial intelligence.',
-    },
-    {
-      title: 'AI Instructor or Trainer',
-      description: 'Teach AI concepts and applications to teams or students, preparing them to harness its potential in projects.',
-    },
-    {
-      title: 'Technology Entrepreneur',
-      description: 'Launch products or services that use generative AI as a competitive advantage, driving differentiation.',
-    },
-  ];
+  // Use the imported data (with a type assertion for safety)
+  const data: BenefitsAndCareerData = benefitsAndCareerDataJson;
 
   return (
     <div className="min-h-screen bg-gradient-hero dark:bg-dark-gradient-hero text-primary-dark dark:text-dark-primary-dark p-8">
@@ -61,7 +47,7 @@ const BenefitsAndCareer = () => {
         {/* Additional benefits section */}
         <h2 className="text-4xl font-bold mb-8 text-primary-light dark:text-dark-primary-light max-sm:text-[#00C4EE] max-sm:dark:text-[#00D4FF]">Additional benefits</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {benefits.map((benefit, index) => (
+          {data.benefits.map((benefit, index) => (
             <Card key={index} title={benefit.title} description={benefit.description} isCareer={false} />
           ))}
         </div>
@@ -69,7 +55,7 @@ const BenefitsAndCareer = () => {
         {/* Career opportunities section */}
         <h2 className="text-4xl font-bold mb-8 text-primary-light dark:text-dark-primary-light max-sm:text-[#00C4EE] max-sm:dark:text-[#00D4FF]">Career opportunities</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-          {careerOpportunities.map((career, index) => (
+          {data.careerOpportunities.map((career, index) => (
             <Card key={index} title={career.title} description={career.description} isCareer={true} />
           ))}
         </div>

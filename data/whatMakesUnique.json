@@ -1,0 +1,57 @@
+[
+  {
+    "id": "flexible-lernformate",
+    "leftTitle": "Flexible Lernformate, die zu deinem Leben passen",
+    "rightContent": {
+      "imageSrc": "/UniqueSection-image1.jpeg",
+      "imageAlt": "People collaborating in a flexible learning environment",
+      "text": "Online, Vollzeit, Teilzeit oder vor Ort lernen? Le Wagon ist das einzige Webentwicklungs-Bootcamp, das alle diese Formate anbietet.",
+      "linkText": "Lernformate von Le Wagon entdecken",
+      "linkHref": "/lernformate"
+    }
+  },
+  {
+    "id": "praxisorientiertes-lernen",
+    "leftTitle": "Praxisorientiertes Lernen mit echten Projekten",
+    "rightContent": {
+      "imageSrc": "/UniqueSection-image2.jpeg",
+      "imageAlt": "Students working on a project",
+      "text": "Lerne durch die Entwicklung echter Produkte von Grund auf. Unser praxisorientierter Ansatz sorgt dafür, dass du die Fähigkeiten erwirbst, die in der Tech-Branche wirklich gefragt sind.",
+      "linkText": "Erfahre mehr über Projekte",
+      "linkHref": "/projekte"
+    }
+  },
+  {
+    "id": "karriereberatung",
+    "leftTitle": "Erstklassige Karriereberatung",
+    "rightContent": {
+      "imageSrc": "/UniqueSection-image3.jpeg",
+      "imageAlt": "Career coach advising a student",
+      "text": "Von der Jobsuche bis zum Bewerbungsprozess – unser engagiertes Karriereteam unterstützt dich dabei, deinen Traumjob nach dem Bootcamp zu finden.",
+      "linkText": "Unsere Karriereunterstützung",
+      "linkHref": "/karriere"
+    }
+  },
+  {
+    "id": "globale-community",
+    "leftTitle": "Globale Community mit 29.000+ Alumni",
+    "rightContent": {
+      "imageSrc": "/UniqueSection-image4.jpeg",
+      "imageAlt": "Diverse group of alumni networking",
+      "text": "Tritt unserer weltweiten Gemeinschaft von über 29.000 Alumni bei. Baue dein Netzwerk auf, finde Mentoren und entdecke unzählige Möglichkeiten.",
+      "linkText": "Werde Teil der Community",
+      "linkHref": "/community"
+    }
+  },
+  {
+    "id": "kitt-begleiter",
+    "leftTitle": "KITT: Ihr Bootcamp-Lernbegleiter",
+    "rightContent": {
+      "imageSrc": "/UniqueSection-image5.jpeg",
+      "imageAlt": "Person interacting with a learning companion app (KITT)",
+      "text": "KITT ist unsere maßgeschneiderte Lernplattform, die dich durch den gesamten Bootcamp-Prozess begleitet, von Übungen bis zur Projektverwaltung.",
+      "linkText": "Entdecke KITT",
+      "linkHref": "/kitt"
+    }
+  }
+]
