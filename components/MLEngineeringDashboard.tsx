@@ -44,7 +44,7 @@ const MLEngineeringDashboard = () => {
     contentData[activeSection] || contentData["machine-learning"];
 
   return (
-    <div className="min-h-screen bg-gradient-hero dark:bg-dark-gradient-hero">
+    <div id="MLEngineeringDashboard" className="min-h-screen bg-gradient-hero dark:bg-dark-gradient-hero">
       <div className="sm:w-[80%] w-[90%] mx-auto flex flex-col lg:flex-row gap-8 py-8 justify-center">
         {/* Left Sidebar */}
         <aside className="lg:w-80 flex-shrink-0">

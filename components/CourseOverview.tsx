@@ -22,7 +22,7 @@ export default function CourseOverview() {
   const data: CourseOverviewData = courseOverviewDataJson;
 
   return (
-    <div className="min-h-screen bg-primary-dark p-4 sm:p-8">
+    <div id='CourseOverview' className="min-h-screen bg-primary-dark p-4 sm:p-8">
 
       {/* Main Content Section */}
       <main className="max-w-6xl mx-auto text-center">

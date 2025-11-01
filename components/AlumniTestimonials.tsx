@@ -29,7 +29,7 @@ import testimonialsData from '../data/testimonials.json';
 // Testimonial Card Component (unchanged, but types are now clearer from interface)
 const TestimonialCard = ({ quote, authorName, authorTitle, avatarSrc, audioSrc }: TestimonialItem) => {
   return (
-    <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full shadow-primary-light dark:shadow-primary-light backdrop-blur-sm">
+    <div className="bg-trust-grey dark:bg-dark-trust-grey rounded-lg p-6 lg:p-8 flex flex-col justify-between h-full w-[80%] shadow-primary-light dark:shadow-primary-light backdrop-blur-sm">
       <div className="mb-6">
         <span className="text-primary-light dark:text-dark-primary-light text-5xl font-serif leading-none block mb-4">”</span>
         {/* If you want to display the quote text, uncomment this: */}
@@ -79,53 +79,55 @@ const AlumniTestimonials = () => {
         </p>
 
         {/* Swiper Slider */}
-        <Swiper
-          modules={[Pagination, Navigation, A11y]}
-          spaceBetween={30}
-          slidesPerView={1}
-          pagination={{ clickable: true }} // Made pagination clickable
-          navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }}
-          loop={false} // Set to false, if you want infinite loop, change to true
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
-          }}
-          className="mySwiper !pb-12" // Increased padding-bottom for pagination dots
-        >
-          {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index} className="flex h-auto"> {/* Added flex h-auto for card height */}
-              <TestimonialCard
-                quote={testimonial.quote}
-                authorName={testimonial.authorName}
-                authorTitle={testimonial.authorTitle}
-                avatarSrc={testimonial.avatarSrc}
-                audioSrc={testimonial.audioSrc}
-              />
-            </SwiperSlide>
-          ))}
-          {/* Custom Navigation Buttons (Tailwind styled) */}
-          {/* Ensure these elements are outside Swiper, but within its parent container
-              or appropriately positioned. Swiper will find them by class names. */}
-          <div className="swiper-button-prev absolute top-1/2 -translate-y-1/2 left-0 z-10 flex items-center justify-center p-2 rounded-full bg-trust-grey/50 dark:bg-primary-dark/50 text-primary-light dark:text-dark-primary-light cursor-pointer hover:bg-trust-grey dark:hover:bg-primary-dark transition-colors duration-200">
+        {/* Wrap your Swiper component and navigation buttons in a div */}
+        <div className="relative w-full"> {/* This is your new wrapper */}
+          <Swiper
+            modules={[Pagination, Navigation, A11y]}
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            loop={false}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
+            className="mySwiper w-[90%] !pb-12"
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index} className="flex h-auto">
+                <TestimonialCard
+                  quote={testimonial.quote}
+                  authorName={testimonial.authorName}
+                  authorTitle={testimonial.authorTitle}
+                  avatarSrc={testimonial.avatarSrc}
+                  audioSrc={testimonial.audioSrc}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Custom Navigation Buttons (now positioned relative to the new wrapper) */}
+          <div className="swiper-button-prev absolute top-1/2 -translate-y-1/2 -left-12 z-10 flex items-center justify-center p-2 rounded-full bg-trust-grey/50 dark:bg-primary-dark/50 text-primary-light dark:text-dark-primary-light cursor-pointer hover:bg-trust-grey dark:hover:bg-primary-dark transition-colors duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </div>
-          <div className="swiper-button-next absolute top-1/2 -translate-y-1/2 right-0 z-10 flex items-center justify-center p-2 rounded-full bg-trust-grey/50 dark:bg-primary-dark/50 text-primary-light dark:text-dark-primary-light cursor-pointer hover:bg-trust-grey dark:hover:bg-primary-dark transition-colors duration-200">
+          <div className="swiper-button-next absolute top-1/2 -translate-y-1/2 -right-12 z-10 flex items-center justify-center p-2 rounded-full bg-trust-grey/50 dark:bg-primary-dark/50 text-primary-light dark:text-dark-primary-light cursor-pointer hover:bg-trust-grey dark:hover:bg-primary-dark transition-colors duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
           </div>
-        </Swiper>
+        </div>
       </div>
     </div>
   );

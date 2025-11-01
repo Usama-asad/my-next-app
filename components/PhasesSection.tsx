@@ -34,7 +34,7 @@ const PhaseCard: React.FC<PhaseCardProps> = ({ phaseNumber, description, items, 
 
 const PhasesSection: React.FC = () => {
   return (
-    <section className="bg-gradient-hero dark:bg-dark-gradient-hero text-primary-dark dark:text-dark-primary-dark py-12 sm:py-16 px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
+    <section id='PhasesSection' className="bg-gradient-hero dark:bg-dark-gradient-hero text-primary-dark dark:text-dark-primary-dark py-12 sm:py-16 px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
       <div className="max-w-6xl mx-auto">
         {/* Top Heading */}
         <p className="text-sm uppercase text-secondary-base dark:text-trust-grey font-semibold mb-2">

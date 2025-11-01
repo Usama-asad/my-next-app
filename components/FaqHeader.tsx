@@ -1,6 +1,23 @@
+// components/FaqHeader.jsx
+'use client'; // This component now needs to be a Client Component to handle button clicks
+
 import React from 'react';
 
-const FaqHeader = () => {
+// Define props interface
+interface FaqHeaderProps {
+  activeCategory: string;
+  setActiveCategory: (category: string) => void;
+}
+
+const FaqHeader: React.FC<FaqHeaderProps> = ({ activeCategory, setActiveCategory }) => {
+  const categories = [
+    'Alle',
+    'Anmeldung',
+    'Finanzierungsmöglichkeiten',
+    'Karriere',
+    'Lehrplan',
+  ];
+
   return (
     <div className="container mx-auto px-4 py-6 sm:py-8 text-center bg-gradient-hero dark:bg-dark-gradient-hero">
       <p className="text-primary-light dark:text-dark-primary-light text-xs sm:text-sm font-semibold mb-1 sm:mb-2 max-sm:text-[#00C4EE] max-sm:dark:text-[#00D4FF]">
@@ -11,21 +28,23 @@ const FaqHeader = () => {
       </h1>
 
       <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-4">
-        <button className="px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto text-primary-dark dark:text-trust-grey rounded-lg font-medium hover:bg-primary-light/30 dark:hover:bg-primary-accent focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-dark-primary-light focus:ring-opacity-50 transition duration-300 backdrop-blur-sm">
-          Alle
-        </button>
-        <button className="px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto text-secondary-base dark:text-trust-grey rounded-lg font-medium hover:bg-primary-light/10 dark:hover:bg-primary-accent focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-dark-primary-light focus:ring-opacity-50 transition duration-300 backdrop-blur-sm">
-          Anmeldung
-        </button>
-        <button className="px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto text-secondary-base dark:text-trust-grey rounded-lg font-medium hover:bg-primary-light/10 dark:hover:bg-primary-accent focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-dark-primary-light focus:ring-opacity-50 transition duration-300 backdrop-blur-sm">
-          Finanzierungsmöglichkeiten
-        </button>
-        <button className="px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto text-secondary-base dark:text-trust-grey rounded-lg font-medium hover:bg-primary-light/10 dark:hover:bg-primary-accent focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-dark-primary-light focus:ring-opacity-50 transition duration-300 backdrop-blur-sm">
-          Karriere
-        </button>
-        <button className="px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto text-secondary-base dark:text-trust-grey rounded-lg font-medium hover:bg-primary-light/10 dark:hover:bg-primary-accent focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-dark-primary-light focus:ring-opacity-50 transition duration-300 backdrop-blur-sm">
-          Lehrplan
-        </button>
+        {categories.map((category) => (
+          <button
+            key={category} // Use category name as key
+            onClick={() => setActiveCategory(category)}
+            className={`
+              px-4 py-2 sm:px-6 sm:py-3 w-full sm:w-auto rounded-lg font-medium hover:bg-primary-light/30 dark:hover:bg-primary-accent
+              focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-dark-primary-light focus:ring-opacity-50
+              transition duration-300 backdrop-blur-sm
+              ${activeCategory === category
+                ? 'bg-primary-light/40 dark:bg-primary-accent text-primary-dark dark:text-white' // Active style
+                : 'text-secondary-base dark:text-trust-grey bg-transparent' // Inactive style
+              }
+            `}
+          >
+            {category}
+          </button>
+        ))}
       </div>
     </div>
   );

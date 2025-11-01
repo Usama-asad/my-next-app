@@ -20,14 +20,19 @@ import FaqHeader from '../components/FaqHeader';
 import FaqGrid from '../components/FaqGrid';
 import Header2 from '../components/Header2';
 import AudioPlayer from '../components/AudioPlayer';
+import StatsSection from '../components/StatsSection';
+import HeroWithAvatars from '../components/HeroWithAvatars';
+import React, { useState } from 'react';
 
 export default function Home() {
 
+  const [activeCategory, setActiveCategory] = useState('Alle');
   return (
     <>
       {/* <AudioPlayer/> */}
       <Header/>
       <HeroSection/>
+      <StatsSection/>
       <Header2/>
       <CourseOverview />
       <HeroSection2/>
@@ -37,6 +42,7 @@ export default function Home() {
       <MLEngineeringDashboard/>
       <ScrollingLogos/>
       <BenefitsAndCareer/>
+      <HeroWithAvatars/>
       <InvestmentGuarantee/>
       <OurTeachers/>
       <QualityCommitment/>
@@ -44,8 +50,11 @@ export default function Home() {
       <CourseParticipationSteps/>
       <WhatMakesUnique/>
       <AlumniTestimonials/>
-      <FaqHeader/>
-      <FaqGrid/>
+      <FaqHeader
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
+      <FaqGrid activeCategory={activeCategory} />
     </>
   );
 }

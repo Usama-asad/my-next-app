@@ -42,7 +42,7 @@ const BenefitsAndCareer = () => {
   const data: BenefitsAndCareerData = benefitsAndCareerDataJson;
 
   return (
-    <div className="min-h-screen bg-gradient-hero dark:bg-dark-gradient-hero text-primary-dark dark:text-dark-primary-dark p-8">
+    <div id='BenefitsAndCareer' className="min-h-screen bg-gradient-hero dark:bg-dark-gradient-hero text-primary-dark dark:text-dark-primary-dark p-8">
       <div className="max-w-7xl lg:mx-[10%] mx-auto">
         {/* Additional benefits section */}
         <h2 className="text-4xl font-bold mb-8 text-primary-light dark:text-dark-primary-light max-sm:text-[#00C4EE] max-sm:dark:text-[#00D4FF]">Additional benefits</h2>

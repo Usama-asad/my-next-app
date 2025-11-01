@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutSection = () => {
   return (
-    <section className="bg-gradient-hero dark:bg-dark-gradient-hero text-trust-grey dark:text-dark-trust-grey py-12 sm:py-16 px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
+    <section id='AboutSection' className="bg-gradient-hero dark:bg-dark-gradient-hero text-trust-grey dark:text-dark-trust-grey py-12 sm:py-16 px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
       <div className="max-w-6xl mx-auto flex justify-end">
         <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 w-full md:w-3/4 items-end">
           {/* Left Container: Heading, Sentence, List - First in mobile */}
