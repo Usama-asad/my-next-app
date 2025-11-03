@@ -23,6 +23,9 @@ import AudioPlayer from '../components/AudioPlayer';
 import StatsSection from '../components/StatsSection';
 import HeroWithAvatars from '../components/HeroWithAvatars';
 import React, { useState } from 'react';
+import BootcampSchedule from '../components/BootcampSchedule';
+import SpeedScalingShow from '../components/SpeedScalingShow';
+import Footer from '../components/Footer';
 
 export default function Home() {
 
@@ -30,6 +33,7 @@ export default function Home() {
   return (
     <>
       {/* <AudioPlayer/> */}
+      
       <Header/>
       <HeroSection/>
       <StatsSection/>
@@ -55,6 +59,9 @@ export default function Home() {
         setActiveCategory={setActiveCategory}
       />
       <FaqGrid activeCategory={activeCategory} />
+      <BootcampSchedule/>
+      <SpeedScalingShow/>
+      <Footer/>
     </>
   );
 }

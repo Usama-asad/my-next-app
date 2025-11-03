@@ -184,7 +184,7 @@ export default function HeroSection() {
 
           {/* Right Column: Team Photo - Full width on mobile */}
           <div className="relative w-full aspect-video sm:aspect-[4/3] lg:aspect-square rounded-lg overflow-hidden shadow-2xl mx-auto lg:mx-0 order-1 lg:order-2">
-            <Image
+            {/* <Image
               src="/team-photo.jpg"
               alt="Team discussing project"
               fill
@@ -192,7 +192,23 @@ export default function HeroSection() {
               className="rounded-lg"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
-            />
+            /> */}
+            <iframe
+              id="JotFormIFrame-253032834558055"
+              title="Bildungsgutschein-Check Quiz"
+              onload="window.parent.scrollTo(0,0)"
+              allowtransparency="true"
+              allow="geolocation; microphone; camera; fullscreen; payment"
+              src="https://form.jotform.com/253032834558055"
+              frameborder="0"
+              className="min-width:100%;max-width:100%;height:539px;border:none;"
+              scrolling="no"
+            >
+            </iframe>
+            <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+            <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-253032834558055']"
+              ,
+              "https://form.jotform.com/")</script>
           </div>
         </div>
       </div>

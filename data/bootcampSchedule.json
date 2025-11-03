@@ -1,0 +1,41 @@
+{
+  "headingPrefix": "Startdaten",
+  "heading": "Die nächsten Termine: Data Science & AI Bootcamp",
+  "introParagraph": "Übrigens: Auch Remote-Bootcamp-Teilnehmer*innen können unseren Campus zum gemeinsamen Lernen und Austauschen nutzen. Wir freuen uns auf dich!",
+  "tabs": [
+    {
+      "id": "remote",
+      "label": "Remote",
+      "dates": [
+        {
+          "month": "OKT.",
+          "dateRange": "27. Okt. - 26. Feb. '26",
+          "type": "Vollzeit",
+          "location": "Remote",
+          "language": "Englisch"
+        },
+        {
+          "month": "DEZ.",
+          "dateRange": "1. Dez. - 1. Apr. '26",
+          "type": "Vollzeit",
+          "location": "Remote",
+          "language": "Englisch"
+        },
+        {
+          "month": "JAN.",
+          "dateRange": "26. Jan. - 22. Mai '26",
+          "type": "Vollzeit",
+          "location": "Remote",
+          "language": "Englisch"
+        }
+      ],
+      "emptyMessage": null
+    },
+    {
+      "id": "berlin",
+      "label": "Berlin",
+      "dates": [],
+      "emptyMessage": "No Berlin dates available yet. Please check back later!"
+    }
+  ]
+}
