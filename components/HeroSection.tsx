@@ -196,11 +196,11 @@ export default function HeroSection() {
             <iframe
               id="JotFormIFrame-253032834558055"
               title="Bildungsgutschein-Check Quiz"
-              onload="window.parent.scrollTo(0,0)"
-              allowtransparency="true"
+              // onload="window.parent.scrollTo(0,0)"
+              // allowtransparency="true"
               allow="geolocation; microphone; camera; fullscreen; payment"
               src="https://form.jotform.com/253032834558055"
-              frameborder="0"
+              // frameborder="0"
               className="min-width:100%;max-width:100%;height:539px;border:none;"
               scrolling="no"
             >
